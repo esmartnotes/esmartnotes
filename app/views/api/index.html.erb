@@ -1,0 +1,24 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+var prevUrl = $("#results").attr("src");
+
+	window.setInterval(function(){
+	$.ajax({
+			  url: "./show/",
+			  cache: false
+			})
+		  .done(function( html ) {
+		  	//$("#test").append(html);
+		  	if (prevUrl != html )
+		  	{
+		  		prevUrl = html;
+		    	$("#results").attr("src",html);
+			}
+		  });
+		  }, 2000);
+	
+})
+</script>
+<div id="test"></div>
+<iframe id="results" src="" style="border: 0; position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%"></iframe>

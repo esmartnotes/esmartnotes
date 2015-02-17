@@ -1,0 +1,11 @@
+<h1>Add URL</h1>
+<%= form_for :api, url: api_index_path do |f| %>
+  <p>
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
