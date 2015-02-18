@@ -31,13 +31,9 @@
 				url += k + " "
 			end
 		else
-			url = "http://"
+			url = "http://www."
 			keywords.each_with_index do |k,i|
-				if i < keywords.length-1
-					url += k
-				else
-					url += "." + k
-				end
+				url += k.delete(' ')
 			end
 		end
 
