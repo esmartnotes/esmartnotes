@@ -5,7 +5,7 @@ var prevUrl = $("#results").attr("src");
 
 	window.setInterval(function(){
 	$.ajax({
-			  url: "./show/",
+			  url: "./api/show/",
 			  cache: false
 			})
 		  .done(function( html ) {
