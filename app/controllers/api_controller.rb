@@ -33,7 +33,12 @@
 		else
 			url = "http://www."
 			keywords.each_with_index do |k,i|
-				url += k.delete(' ')
+				# if the final word, replace incorrect "come" with "com"
+				if i == keywords.length-1
+					url += k.delete(' ').gsub("come", "com")
+				else
+					url += k.delete(' ')
+				end
 			end
 		end
 
