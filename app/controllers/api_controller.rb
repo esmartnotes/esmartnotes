@@ -18,7 +18,10 @@
 
 		keywords = @api.url.strip.downcase.split(" ")
 
-		if keywords[0] == "bing"
+		if keywords[0] == "scroll"
+			url = @api.url.strip.downcase
+
+		elsif keywords[0] == "bing"
 			keywords.delete_at(0)
 			url = "http://www.bing.com/search?q="
 			keywords.each do |k|

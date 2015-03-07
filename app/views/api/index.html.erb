@@ -9,11 +9,22 @@ var prevUrl = $("#results").attr("src");
 			  cache: false
 			})
 		  .done(function( html ) {
-		  	//$("#test").append(html);
-		  	if (prevUrl != html )
-		  	{
-		  		prevUrl = html;
-		    	$("#results").attr("src",html);
+		  	if (html == "scroll top") {
+			     window.scrollTo(0,0);
+
+			} else if (html == "scroll down") {
+			     window.scrollTo(0,800);
+		                                                       
+		                                                       
+			} else if (html == "scroll up") {
+			     window.scrollTo(0,-800);
+
+			} else {
+			  	if (prevUrl != html )
+			  	{
+			  		prevUrl = html;
+			    	$("#results").attr("src",html);
+				}
 			}
 		  });
 		  }, 2000);
@@ -21,4 +32,4 @@ var prevUrl = $("#results").attr("src");
 })
 </script>
 <div id="test"></div>
-<iframe id="results" src="" style="border: 0; position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%"></iframe>
+<iframe id="results" src="" style="border: 0; position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:10000px"></iframe>
