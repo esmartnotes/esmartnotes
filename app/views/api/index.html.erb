@@ -1,35 +1,63 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-var prevUrl = $("#results").attr("src");
+	var prevHtml = "Hello";
+	var prevUrl = $("#results").attr("src");
 
 	window.setInterval(function(){
 	$.ajax({
 			  url: "./api/show/",
 			  cache: false
 			})
-		  .done(function( html ) {
-		  	if (html == "scroll top") {
-			     window.scrollTo(0,0);
+		  .done(function( html2 ) {
 
-			} else if (html == "scroll down") {
-			     window.scrollTo(0,800);
-		                                                       
-		                                                       
-			} else if (html == "scroll up") {
-			     window.scrollTo(0,-800);
+	var html= html2.substring(0,html2.search("~"));
 
-			} else {
-			  	if (prevUrl != html )
-			  	{
-			  		prevUrl = html;
-			    	$("#results").attr("src",html);
-				}
-			}
+	if (html == "scroll top") {
+
+                if (prevHtml != html2 ) 
+                {
+		   prevHtml = html2;
+	    	   window.scrollTo(0,0);
+                } 
+
+
+	} else if (html == "scroll down") {
+
+                if (prevHtml != html2 ) 
+                {
+		   prevHtml = html2;
+	    	   window.scrollBy(0,800);
+                } 
+
+
+	} else if (html == "scroll up") {
+
+
+                if (prevHtml != html2 ) 
+                {
+		   prevHtml = html2;
+	    	   window.scrollBy(0,-800);
+                } 
+
+
+	} else {
+
+                if (prevUrl != html ) 
+                {
+		   prevUrl = html;
+	    	   window.scrollTo(0,0);
+		   $("#results").attr("src",html);
+		}	
+	}
+
+
 		  });
+
+
 		  }, 2000);
 	
 })
 </script>
 <div id="test"></div>
-<iframe id="results" src="" style="border: 0; position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:10000px"></iframe>
+<iframe id="results" src="" style="border: 0; position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100000px"></iframe>

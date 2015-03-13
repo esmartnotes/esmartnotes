@@ -7,7 +7,7 @@
 
 	def show
 		@apis = Api.order('created_at desc').limit(1)
-		render plain: @apis.first.url
+		render plain: @apis.first.url + "~" + @apis.first.id.to_s
 	end
 
 	def new
